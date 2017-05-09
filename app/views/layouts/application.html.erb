@@ -9,6 +9,6 @@
 <body>
 
 <%= yield %>
-
+<%= javascript_include_tag "/#{ENV['PRODUCT_NAME']}/bundle.js" %>
 </body>
 </html>
