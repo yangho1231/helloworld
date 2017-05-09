@@ -1,0 +1,43 @@
+machine:
+  environment:
+    GUTENBERG_URL: NA
+    ZUUL_APP_ID: NA
+    ZUUL_APP_SECRET: NA
+    ZUUL_URL: NA
+    PLATFORM_ENV: NA
+    ZUUL_APP_ID: NA
+    ZUUL_APP_SECRET: NA
+    ZUUL_URL: NA
+    UHF_URL: NA
+    MINARET_URL: NA
+    GUTENBERG_URL: NA
+    SMITHERS_URL: NA
+    PALLET_JACK_URL: NA
+    NUVIS_URL: NA
+    PRODUCT_NAME: NA
+    BOLT_PRODUCT_NAME: NA
+    BOLT_URL: NA
+
+deployment:
+  stage:
+    branch: stage
+    commands:
+      - git push git@heroku.com:YOUR_REPO_NAME-stage-nuvi.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app YOUR_REPO_NAME-stage-nuvi:
+          timeout: 400 # if your deploys take a long time
+  prod:
+    branch: prod
+    commands:
+      - git push git@heroku.com:YOUR_REPO_NAME-prod-nuvi.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app YOUR_REPO_NAME-prod-nuvi:
+          timeout: 400 # if your deploys take a long time
+
+test:
+  post:
+    - bundle exec rake rubocop
+
+
+dependencies:
+  pre:
+    - echo "export rvm_ignore_gemsets_flag=1" >> ~/.rvmrc
+    - gem install bundler
