@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
+gem 'dotenv-rails', groups: %i[development test]
 gem 'redis'
 gem 'rubocop'
-gem 'dotenv-rails', :groups => [:development, :test]
-#the dotenv-rails gem only for when we are running in development or test mode.
+# the dotenv-rails gem only for when we are running in development or test mode.
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7.1'
@@ -34,11 +34,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-source "https://xvYsU8J_ySFNyjXaBUyM@gem.fury.io/nuvi/" do
-  gem "zohar", "~> 1.0.2"
-  gem "zuul_client", "~> 6.0.1"
-  gem "nuvi_session_store", "~> 0.1.0"
-  gem "nuvify", "~> 1.0.1"
+source 'https://xvYsU8J_ySFNyjXaBUyM@gem.fury.io/nuvi/' do
+  gem 'nuvi_session_store', '~> 0.1.0'
+  gem 'nuvify', '~> 1.0.1'
+  gem 'zohar', '~> 1.0.2'
+  gem 'zuul_client', '~> 6.0.1'
 end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -52,4 +52,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope ENV["PRODUCT_NAME"] do
+  scope ENV['PRODUCT_NAME'] do
     ZuulClient.routes self
   end
   root 'welcome#index'
